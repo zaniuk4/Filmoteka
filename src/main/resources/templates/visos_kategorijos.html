@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Visos kategorijos</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+<div th:each="zanras : ${visiZanrai}" class="list-group">
+  <a th:text="${zanras.getPavadinimas()}" th:href="@{/zanras/rodyti_pavadinimus(id=${zanras.getID()})}" class="list-group-item list-group-item-action"></a>
+</div>
+</body>
+</html>

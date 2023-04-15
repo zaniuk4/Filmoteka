@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FilmoZanrasRepository extends JpaRepository <FilmoZanras,Long >{
     FilmoZanras findById (long id);
+    FilmoZanras findByPavadinimas (String pavadinimas);
 
 
 }

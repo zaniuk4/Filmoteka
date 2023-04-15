@@ -13,5 +13,6 @@ public interface FilmaiRepository  extends JpaRepository <Filmai, Long> {
 
     Filmai findById(long id);
 
-    List<Filmai> findByZanras(FilmoZanras zanras);
+    Filmai findByPavadinimas(String pavadinimas);
+
 }

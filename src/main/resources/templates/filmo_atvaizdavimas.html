@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Filmo atvaizdavimas</title>
+    <title>Getting Started: Serving Web Content</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet"
@@ -15,7 +17,47 @@
         <th>Pavadinimas</th>
         <td th:text="${pavadinimas}"></td>
     </tr>
+    <tr>
+        <th>Zanras</th>
+        <td th:text="${zanras}"></td>
+    </tr>
+    <tr>
+        <th>IMDB Reitingas</th>
+        <td th:text="${IMDBReitingas}"></td>
+    </tr>
+    <tr>
+        <th>Komentaras:</th>
+        <td>
+            <ul th:each="komentaras : ${filmoKomentaras}" class="list-group">
+                <li class="list-group-item">
+                    <p th:text="${komentaras.getVartotojas().getUsername()}"></p>
+                    <p th:text="${komentaras.getTekstas()}"></p>
+                </li>
+            </ul>
+        </td>
+    </tr>
 
 </table>
+
+<form th:action="@{'/filmas/redaguoti_filma/' + ${id}}" method="get">
+    <input type="submit" value="Redaguoti filma">
+</form>
+
+<form th:action="@{'/filmas/istrinti_filma/' + ${id}}" method="post">
+    <input type="submit" value="Ištrinti filma">
+</form>
+
+<form th:action="@{'/vartotojas/komentuoti_filma/' + ${id}}" method="post">
+    <input th:value="${komentaras}" type="text"name="komentaras" class="form-control" placeholder="Komentuokite filma...">
+    <input type="submit" value="Komentuoti filma">
+</form>
+
 </body>
 </html>
+
+
+
+
+
+
+
